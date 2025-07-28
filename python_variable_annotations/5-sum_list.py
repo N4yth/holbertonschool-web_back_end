@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 from typing import List
 """
-module with 1 function
+module with 1 function with 1 import to use
+List instead of list type
 """
 
 
