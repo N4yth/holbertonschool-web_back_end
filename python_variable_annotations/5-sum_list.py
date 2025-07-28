@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+"""
+module with 1 function
+"""
+
+
+def sum_list(input_list: list[float]) -> float:
+    """
+    function to count the sum of all variable of an list
+    """
+    result: float = 0
+    for i in range(len(input_list)):
+        result += input_list[i]
+    return (result)
