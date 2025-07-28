@@ -8,6 +8,7 @@ module with 1 function
 def sum_list(input_list: List[float]) -> float:
     """
     function to count the sum of all variable of an list
+    return an float that is the result
     """
     result: float = 0
     for i in range(len(input_list)):
