@@ -9,4 +9,6 @@ def make_multiplier(multiplier: float) -> Callable[[float], float]:
     """
     Calculate the sum of all elements in a list of floats.
     """
-    return lambda multiplier : multiplier * multiplier
+    def mul(x: float) -> float:
+        return x * multiplier
+    return mul
