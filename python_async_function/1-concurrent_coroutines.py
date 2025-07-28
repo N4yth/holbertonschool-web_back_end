@@ -3,7 +3,6 @@
 module with 1 function
 """
 from typing import List
-import asyncio
 
 
 async def wait_n(n: int, max_delay: int = 10) -> List[float]:
@@ -14,5 +13,15 @@ async def wait_n(n: int, max_delay: int = 10) -> List[float]:
     result: List[float] = []
     for i in range(n):
         result.append(await wait_random(max_delay))
-    result.sort()
+    result = quick_sort(result)
     return (result)
+
+
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    else:
+        pivot = arr[0]
+        greater = [x for x in arr[1:] if x <= pivot]
+        lesser = [x for x in arr[1:] if x > pivot]
+        return quick_sort(greater) + [pivot] + quick_sort(lesser)
