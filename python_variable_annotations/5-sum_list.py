@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
+from typing import List
 """
 module with 1 function
 """
 
 
-def sum_list(input_list: list[float]) -> float:
+def sum_list(input_list: List[float]) -> float:
     """
     function to count the sum of all variable of an list
     """
