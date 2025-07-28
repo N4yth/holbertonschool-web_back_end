@@ -1,15 +1,21 @@
 #!/usr/bin/env python3
 from typing import List
+
 """
-module with 1 function with 1 import to use
-List instead of list type
+This module provides a utility function for summing
+the elements of a list of floats.
 """
 
 
 def sum_list(input_list: List[float]) -> float:
     """
-    function to count the sum of all variable of an list
-    return an float that is the result
+    Calculate the sum of all elements in a list of floats.
+
+    Args:
+        input_list (List[float]): A list of float values.
+
+    Returns:
+        float: The sum of all values in the input list.
     """
     result: float = 0
     for i in range(len(input_list)):
