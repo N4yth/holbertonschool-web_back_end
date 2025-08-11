@@ -1,5 +1,5 @@
 // command to add a attribute to a document int the school collection
-db.school.updateMany({
+db.school.update({
     "name": "Holberton school"
 },
 {
