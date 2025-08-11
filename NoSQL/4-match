@@ -1,2 +1,2 @@
-// command to use/create a datatable
-db.school.find({"name": "Holberton school"});
+// command to count the number of document in the school collection
+db.school.count();
