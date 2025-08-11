@@ -1,0 +1,9 @@
+// command to add a attribute to a document int the school collection
+db.school.update({
+    "name": "Holberton school"
+},
+{
+    $set: {
+        "address": "972 Mission street"
+    }
+});
