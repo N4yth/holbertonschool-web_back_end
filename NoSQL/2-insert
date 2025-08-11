@@ -1,5 +1,5 @@
 // command to use/create a datatable
-createCollection("school")
-school.insertOne({
+db.createCollection("school")
+db.school.insertOne({
     name: "Holberton school"
 })
