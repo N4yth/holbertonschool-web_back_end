@@ -1,0 +1,4 @@
+node_modules/
+*.json
+*.cpython-312.pyc
+*.config.js
