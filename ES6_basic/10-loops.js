@@ -1,13 +1,9 @@
 export default function appendToEachArrayValue(array, appendString) {
-  const iterableObj = {
-    *[Symbol.iterator]() {
-      yield* Object.entries(array);
-    },
-  };
+  const result = [];
 
-  for (const [key, val] of iterableObj) {
-    array[key] = appendString + val;
+  for (const val of array) {
+    result.push(appendString + val);
   }
 
-  return array;
+  return result;
 }
