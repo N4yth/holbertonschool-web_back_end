@@ -33,7 +33,6 @@ export default class HolbertonCourse {
   }
 
   set students(newStudents) {
-    console.log("test")
     if (!Array.isArray(newStudents)) {
       throw new TypeError('Students must be a Array');
     }
