@@ -1,4 +1,6 @@
 /* eslint-disable */
+import Currency from './3-currency.js';
+
 export default class Pricing {
   constructor(amount, currency) {
     this.amount = amount;
@@ -10,7 +12,7 @@ export default class Pricing {
   }
 
   set currency(newCurrency) {
-    if (typeof newCurrency !== 'object') {
+    if (!(newCurrency instanceof Currency)) {
       throw new TypeError(`currency must be a currency`);
     }
     this._currency = newCurrency;
@@ -31,7 +33,13 @@ export default class Pricing {
     return `${this._amount} ${this._currency.displayFullCurrency()}`;
   }
 
-  convertPrice(amount, conversionRate) {
+  static convertPrice(amount, conversionRate) {
+    if (typeof conversionRate !== 'number') {
+      throw new TypeError(`conversionRate must be a number`);
+    }
+    if (typeof amount !== 'number') {
+      throw new TypeError(`amount must be a number`);
+    }
     return amount * conversionRate;
   }
 }
