@@ -3,7 +3,7 @@ export default function cleanSet(set, startString) {
     return '';
   }
   var text = '';
-  set.forEach(function(value) {
+  set.forEach(value => {
     if (value.startsWith(startString)) {
       text += value.slice(startString.length) + '-';
     }
