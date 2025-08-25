@@ -5,13 +5,15 @@ export default function cleanSet(set, startString) {
   var start = true;
   var text = '';
   set.forEach(value => {
-    if (value.startsWith(startString)) {
-      if (start) {
-        text += value.slice(startString.length);
-        start = false;
-      }
-      else {
-        text += '-' + value.slice(startString.length);
+    if (typeof value === 'string') {
+      if (value.startsWith(startString)) {
+        if (start) {
+          text += value.slice(startString.length);
+          start = false;
+        }
+        else {
+          text += '-' + value.slice(startString.length);
+        }
       }
     }
   })
