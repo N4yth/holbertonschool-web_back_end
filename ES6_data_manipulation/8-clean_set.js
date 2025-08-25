@@ -2,7 +2,7 @@ export default function cleanSet(set, startString) {
   if (startString === '') {
     return '';
   }
-  var start;
+  var start = true;
   var text = '';
   set.forEach(value => {
     if (value.startsWith(startString)) {
