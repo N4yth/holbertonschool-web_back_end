@@ -2,8 +2,8 @@ export default function cleanSet(set, startString) {
   if (!startString || startString === '') {
     return '';
   }
-  var start = true;
-  var text = '';
+  let start = true;
+  let text = '';
   set.forEach(value => {
     if (typeof value === 'string') {
       if (value.startsWith(startString)) {
