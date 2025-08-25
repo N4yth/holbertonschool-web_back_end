@@ -1,5 +1,5 @@
-import {uploadPhoto} from "./utils.js";
-import {createUser} from "./utils.js";
+import uploadPhoto from "./utils.js";
+import createUser from "./utils.js";
 
 export default async function handleProfileSignup() {
   Promise.all([createUser(), uploadPhoto()])
