@@ -4,7 +4,7 @@ export default function cleanSet(set, startString) {
   }
   let start = true;
   let text = '';
-  set.forEach(value => {
+  for (const value of set) {
     if (typeof value === 'string') {
       if (value.startsWith(startString)) {
         if (start) {
@@ -16,6 +16,6 @@ export default function cleanSet(set, startString) {
         }
       }
     }
-  })
+  }
   return text;
 }
