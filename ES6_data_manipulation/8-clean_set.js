@@ -3,10 +3,10 @@ export default function cleanSet(set, startString) {
     return '';
   }
   let start = true;
-  let text = '';
+  let text = [];
   for (const value of set) {
     if (typeof value === 'string') {
-      if (value.startsWith(startString)) {
+      if (value.indexOf(startString) === 0) {
         if (start) {
           text += value.substring(startString.length);
           start = false;
