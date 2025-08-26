@@ -3,5 +3,5 @@ import signUpUser from "./4-user-promise.js";
 
 export default async function handleProfileSignup(firstName, lastName, fileName) {
   return await Promise.allSettled([uploadPhoto(fileName), signUpUser(firstName, lastName)])
-  .then(results => {return results});
+    .then(results => {return results});
 }
