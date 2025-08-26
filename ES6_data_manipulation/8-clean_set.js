@@ -10,9 +10,8 @@ export default function cleanSet(set, startString) {
         if (start) {
           text += value.substring(startString.length);
           start = false;
-        }
-        else {
-          text += '-' + value.substring(startString.length);
+        } else {
+          text += `-${value.substring(startString.length)}`;
         }
       }
     }
