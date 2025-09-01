@@ -6,12 +6,12 @@ const rl = readline.createInterface({
 });
 
 rl.question('Welcome to Holberton School, what is your name?\n', (name) => {
-  rl.write(`Your name is ${name}!\n`);
+  console.log(`Your name is ${name}!`);
   rl.close();
 });
 
 rl.on('close', () => {
   if (!process.stdin.setRawMode) {
-    rl.write('This important software is now closing\n');
+    console.log('This important software is now closing');
   }
 });
