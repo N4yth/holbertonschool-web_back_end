@@ -1,8 +1,6 @@
-const http = require('http');
 const app = require('express')();
 const countStudents = require('./3-read_file_async');
 
-http.createServer(app).listen(1245);
 app.get('/', (req, res) => {
   res.send('Hello Holberton School!');
 });
@@ -15,5 +13,7 @@ app.get('/students', (req, res) => {
       res.send(`This is the list of our students\n${err.message}`);
     });
 });
+
+app.listen(1245, () => {});
 
 module.exports = app;
