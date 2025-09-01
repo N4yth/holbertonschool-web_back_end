@@ -26,6 +26,11 @@ function countStudents(path) {
       console.log(`Number of students: ${nbStudent}`);
       console.log(`Number of students in CS: ${nbStudentCS.length}. List: ${listName(nbStudentCS)}`);
       console.log(`Number of students in SWE: ${nbStudentSWE.length}. List: ${listName(nbStudentSWE)}`);
+      return (
+        `Number of students: ${nbStudent}\n`
+        + `Number of students in CS: ${nbStudentCS.length}. List: ${listName(nbStudentCS)}\n`
+        + `Number of students in SWE: ${nbStudentSWE.length}. List: ${listName(nbStudentSWE)}`
+      );
     })
     .catch(() => {
       throw new Error('Cannot load the database');
