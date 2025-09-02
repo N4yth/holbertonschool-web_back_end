@@ -3,19 +3,14 @@ import StudentsController from '../controllers/StudentsController';
 
 module.exports = (app, databasePath) => {
   app.get('/', (req, res) => {
-    const result = AppController.getHomepage(req, res);
-    res.status(result.status).send(result.message);
+    AppController.getHomepage(req, res);
   });
 
   app.get('/students', async (req, res) => {
-    const result = await StudentsController.getAllStudents(req, res, databasePath);
-    res.status(result.status).send(result.message);
+    StudentsController.getAllStudents(req, res, databasePath);
   });
 
   app.get('/students/:major', async (req, res) => {
-    const result = await StudentsController.getAllStudentsByMajor(
-      req, res, databasePath, req.params.major,
-    );
-    res.status(result.status).send(result.message);
+    StudentsController.getAllStudentsByMajor(req, res, databasePath);
   });
 };
