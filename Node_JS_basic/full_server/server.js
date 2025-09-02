@@ -2,7 +2,7 @@ import express from 'express';
 import routes from './routes/index';
 
 const app = express();
-routes(app, process.argv[2]);
+routes(app);
 app.listen(1245, () => {});
 
 export default app;
