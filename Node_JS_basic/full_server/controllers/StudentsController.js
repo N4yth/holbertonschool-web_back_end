@@ -2,17 +2,14 @@ import readDatabase from '../utils';
 
 class StudentsController {
   static async getAllStudents(request, response, databasePath) {
-     try {
+    try {
+      let message = 'This is the list of our students';
       const students = await readDatabase(databasePath);
+      for (const [key] of Object.entries(students).sort()) {
+        message += `\nNumber of students in ${[key]}: ${students[key].length}. List: ${students[key].join(', ')}`;
+      }
       return {
-        message:
-          'This is the list of our students\n'
-          + `Number of students in CS: ${students.CS.length}. List: ${students.CS
-            .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))
-            .join(', ')}\n`
-          + `Number of students in SWE: ${students.SWE.length}. List: ${students.SWE
-            .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))
-            .join(', ')}`,
+        message,
         status: 200,
       };
     } catch (err) {
