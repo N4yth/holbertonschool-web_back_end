@@ -2,7 +2,6 @@ import readDatabase from '../utils';
 
 class StudentsController {
   static getAllStudents(request, response, databasePath) {
-
     let message = 'This is the list of our students';
     readDatabase(databasePath)
       .then((students) => {
@@ -17,7 +16,7 @@ class StudentsController {
   }
 
   static getAllStudentsByMajor(request, response, databasePath) {
-    const major = request.params.major
+    const { major } = request.params.major;
     if (major !== 'CS' && major !== 'SWE') {
       response.status(500).send('Major parameter must be CS or SWE');
     }
