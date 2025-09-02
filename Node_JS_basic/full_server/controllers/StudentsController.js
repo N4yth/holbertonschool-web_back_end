@@ -1,24 +1,13 @@
-const readDatabase = require('../utils');
-
-const listName = (list) => list.map((element) => element[0]).join(', ');
+import readDatabase from '../utils';
 
 class StudentsController {
   static async getAllStudents(request, response, databasePath) {
     try {
       const students = await readDatabase(databasePath);
-      const nbStudentCS = [];
-      const nbStudentSWE = [];
-      students.forEach((student) => {
-        if (student[3] === 'CS') {
-          nbStudentCS.push(student);
-        } else {
-          nbStudentSWE.push(student);
-        }
-      });
       return {
         message: 'This is the list of our students\n'
-          + `Number of students in CS: ${nbStudentCS.length}. List: ${listName(nbStudentCS)}\n`
-          + `Number of students in SWE: ${nbStudentSWE.length}. List: ${listName(nbStudentSWE)}`,
+          + `Number of students in CS: ${students.CS.length}. List: ${students.CS.join(', ')}\n`
+          + `Number of students in SWE: ${students.SWE.length}. List: ${students.SWE.join(', ')}`,
         status: 200,
       };
     } catch (err) {
@@ -35,14 +24,8 @@ class StudentsController {
         throw new Error('Major parameter must be CS or SWE');
       }
       const students = await readDatabase(databasePath);
-      const studentsList = [];
-      students.forEach((student) => {
-        if (student[3] === major) {
-          studentsList.push(student);
-        }
-      });
       return {
-        message: `List: ${listName(studentsList)}`,
+        message: `List: ${students[major].join(', ')}`,
         status: 200,
       };
     } catch (err) {
@@ -54,4 +37,4 @@ class StudentsController {
   }
 }
 
-module.exports = { StudentsController, listName };
+module.exports = StudentsController;
