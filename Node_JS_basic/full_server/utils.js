@@ -1,19 +1,27 @@
-const fs = require('fs').promises;
+import { promises as fs } from 'fs';
 
 function readDatabase(path) {
   return fs.readFile(path, 'utf8')
     .then((data) => {
       let start = true;
-      const allstudents = [];
+      const nbStudentCS = [];
+      const nbStudentSWE = [];
       const rows = data.split('\n');
       rows.forEach((row) => {
         const columns = row.split(',');
         if (!start && row !== '') {
-          allstudents.push(columns);
+          if (columns[3] === 'CS') {
+            nbStudentCS.push(columns[0]);
+          } else {
+            nbStudentSWE.push(columns[0]);
+          }
         }
         start = false;
       });
-      return allstudents;
+      return {
+        CS: nbStudentCS,
+        SWE: nbStudentSWE,
+      };
     })
     .catch(() => {
       throw new Error('Cannot load the database');
