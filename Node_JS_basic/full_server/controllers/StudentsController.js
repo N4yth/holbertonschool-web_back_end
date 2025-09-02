@@ -1,32 +1,32 @@
 import readDatabase from '../utils';
 
 class StudentsController {
-  static getAllStudents(request, response, databasePath) {
+  static getAllStudents(req, res, databasePath) {
     let message = 'This is the list of our students';
     readDatabase(databasePath)
       .then((students) => {
         for (const [key] of Object.entries(students).sort()) {
           message += `\nNumber of students in ${[key]}: ${students[key].length}. List: ${students[key].join(', ')}`;
         }
-        response.status(200).send(message);
+        res.status(200).send(message);
       })
       .catch((err) => {
-        response.status(500).send(err.message);
+        res.status(500).send(err.message);
       });
   }
 
-  static getAllStudentsByMajor(request, response, databasePath) {
-    const { major } = request.params;
+  static getAllStudentsByMajor(req, res, databasePath) {
+    const { major } = req.params;
     if (major !== 'CS' && major !== 'SWE') {
-      response.status(500).send('Major parameter must be CS or SWE');
+      res.status(500).send('Major parameter must be CS or SWE');
       return;
     }
     readDatabase(databasePath)
       .then((students) => {
-        response.status(200).send(`List: ${students[major].join(', ')}`);
+        res.status(200).send(`List: ${students[major].join(', ')}`);
       })
       .catch((err) => {
-        response.status(500).send(err.message);
+        res.status(500).send(err.message);
       });
   }
 }
