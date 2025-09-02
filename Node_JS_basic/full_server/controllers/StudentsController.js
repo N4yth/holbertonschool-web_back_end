@@ -2,7 +2,7 @@ import readDatabase from '../utils';
 
 class StudentsController {
   static async getAllStudents(request, response, databasePath) {
-    try {
+     try {
       const students = await readDatabase(databasePath);
       return {
         message:
@@ -42,4 +42,4 @@ class StudentsController {
   }
 }
 
-module.exports = StudentsController;
+export default StudentsController;
