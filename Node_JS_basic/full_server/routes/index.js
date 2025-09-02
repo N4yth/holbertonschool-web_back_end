@@ -1,5 +1,5 @@
-const AppController = require('../controllers/AppController');
-const { StudentsController } = require('../controllers/StudentsController');
+import AppController from '../controllers/AppController';
+import StudentsController from '../controllers/StudentsController';
 
 module.exports = async (app, databasePath) => {
   app.get('/', (req, res) => {
